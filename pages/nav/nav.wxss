@@ -1,0 +1,28 @@
+/* pages/nav/nav.wxss */
+
+.headImgView {
+  height: 10rem;
+  width: 100%;
+}
+
+.headImg {
+  display: initial;
+  border-radius: 1rem;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rpx 0;
+  box-sizing: border-box;
+}

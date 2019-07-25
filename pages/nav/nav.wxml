@@ -1,0 +1,11 @@
+<!--nav.wxml-->
+<view class='headImgView'>
+  <image src='../imgs/banner2.jpg' class='headImg'></image>
+</view>
+<view class="container">
+  <text>dddddd</text>
+  
+   <web-view src="https://www.baidu.com"></web-view>
+
+  <icon type="cancel" size="40"></icon>
+</view>
