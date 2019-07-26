@@ -29,7 +29,7 @@ Page({
   },
   onLoad: function () {
     wx.navigateTo({
-      url: '../nav/nav'
+      url: '../imgs/img'
     })
 
     if (app.globalData.userInfo) {
