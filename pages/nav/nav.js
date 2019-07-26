@@ -6,7 +6,12 @@ Page({
   data: {
     motto: 'Hello World',
     toView: 'red',
-    scrollTop: 100
+    scrollTop: 100,
+    items:[
+      {name:"shangpinq"},
+      { name: "shangpinq" },
+      { name: "shangpinq" },
+    ]
   },
   //事件处理函数
   bindViewTap: function () {
