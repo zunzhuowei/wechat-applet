@@ -22,8 +22,8 @@ Page({
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
-    this.getData();
-    //this.getData2();
+    // this.getData();
+    this.getData2();
   },
   upper: function () {
     wx.showNavigationBarLoading()
@@ -53,8 +53,9 @@ Page({
         });
   },
     getData2: function(){
-    var index_api = 'http://192.168.1.128:8080/happybeardapp';
-    util.getData(index_api)
+    var params = {sesskey:"aa"};
+    var index_api = 'http://192.168.1.128:8080/happybeardapp/api/login.do';
+    util.getData(index_api,params)
         .then(function(data){
           //this.setData({
           //

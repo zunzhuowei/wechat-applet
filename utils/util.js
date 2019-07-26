@@ -25,15 +25,16 @@ var index_next = require('../data/data_index_next.js')
 var discovery = require('../data/data_discovery.js')
 var discovery_next = require('../data/data_discovery_next.js')
 
-function getData(url){
-  return new Promise(function(resolve, reject){
+function getData(url, params) {
+  return new Promise(function (resolve, reject) {
     wx.request({
       url: url,
-      data: {},
+      data: params,
+      method: "POST",
       header: {
         //'Content-Type': 'application/json'
       },
-      success: function(res) {
+      success: function (res) {
         console.log("success")
         resolve(res)
       },
@@ -41,7 +42,7 @@ function getData(url){
         reject(res)
         console.log("failed")
       }
-    })
+    });
   })
 }
 
