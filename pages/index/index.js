@@ -23,6 +23,7 @@ Page({
     var that = this
     //调用应用实例的方法获取全局数据
     this.getData();
+    //this.getData2();
   },
   upper: function () {
     wx.showNavigationBarLoading()
@@ -43,6 +44,16 @@ Page({
   //网络请求数据, 实现首页刷新
   refresh0: function(){
     var index_api = '';
+    util.getData(index_api)
+        .then(function(data){
+          //this.setData({
+          //
+          //});
+          console.log(data);
+        });
+  },
+    getData2: function(){
+    var index_api = 'http://192.168.1.128:8080/happybeardapp';
     util.getData(index_api)
         .then(function(data){
           //this.setData({
