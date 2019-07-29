@@ -5,7 +5,12 @@ var app = getApp()
 Page({
     data: {
         feed: [],
-        feed_length: 0
+        feed_length: 0,
+        showTopTips: false,
+        isAgree: false,
+        phone: "xxxxx",
+        email: "33xxx4xx1@adfadsf.com",
+        vcode: "",
     },
     //事件处理函数
     bindItemTap: function () {
@@ -145,7 +150,52 @@ Page({
                 duration: 2000
             })
         }, 3000)
-    }
+    },
+    doSubmit: function(){
+        var that = this;
 
+        // this.setData({
+        //     showTopTips: true
+        // });
+        // setTimeout(function(){
+        //     that.setData({
+        //         showTopTips: false
+        //     });
+        // }, 3000);
 
+        var params = {
+            phone: that.data.phone,
+            email: that.data.email,
+        };
+
+        var index_api = 'http://127.0.0.1:5566/api/member/phone/register/check/code';
+        util.HttpRequest.send(index_api, params)
+            .then(function (data) {
+                that.setData({
+
+                });
+                console.log(data);
+            });
+
+    },
+    bindAgreeChange: function (e) {
+        this.setData({
+            isAgree: !!e.detail.value.length
+        });
+    },
+    bindEmailInput: function(e) {
+        this.setData({
+            email: e.detail.value
+        })
+    },
+    bindPhoneInput: function(e) {
+        this.setData({
+            phone: e.detail.value
+        })
+    },
+    bindVcodeInput: function(e) {
+        this.setData({
+            vcode: e.detail.value
+        })
+    },
 })
