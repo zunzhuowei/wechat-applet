@@ -10,7 +10,12 @@ const env = {
     /**
      * 测试接口地址
      */
-    test_host: "http://127.0.0.1:5566",
+    test_host: "http://192.168.8.43:5566",
+
+    /**
+     *  api 前缀
+     */
+    api_prefix: "/api",
 
 };
 
@@ -22,7 +27,7 @@ var api = {
     /**
      * 接口地址
      */
-    host: env.local_host,
+    host: env.test_host,
 
     /**
      *  uri 地址
@@ -31,17 +36,22 @@ var api = {
         /**
          * 获取验证码接口
          */
-        register_check_code: "/api/member/phone/register/check/code",
+        register_check_code: env.api_prefix + "/member/phone/register/check/code",
 
         /**
          * 手机号码注册接口
          */
-        phone_register: "/api/member/phone/register",
+        phone_register: env.api_prefix + "/member/phone/register",
 
         /**
          * 手机号码登录接口
          */
-        phone_login: "/api/member/phone/login",
+        phone_login: env.api_prefix + "/member/phone/login",
+
+        /**
+         * 获取壹帐号个人用户信息接口
+         */
+        get_members_infos: env.api_prefix + "/get/members/infos",
     },
 };
 

@@ -62,11 +62,15 @@ function discoveryNext(){
 var HttpRequest;
 (function () {
   HttpRequest = {
-    javaSecrect: "xxxxxxxxxxxxxxxxxx",
+    javaSecrect: "ZXgZz*L8WiLW%8jXKbom0NmB9%UAaJMP",
     send: function (url, params) {
       //debugger
       var parameters = Object.assign({}, {}, params);
       parameters.signCode = Date.parse(new Date()) / 1000;
+      var reqMid = wx.getStorageSync("reqMid");
+      if (reqMid) {
+        parameters.reqMid = reqMid;
+      }
 
       var obj = Object.assign({}, parameters, params);
 
@@ -87,7 +91,9 @@ var HttpRequest;
           data: parameters,
           method: "POST",
           header: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+            token: wx.getStorageSync("token"),
+            reqMid: wx.getStorageSync("reqMid"),
           },
           success: function (res) {
             //console.log("success")

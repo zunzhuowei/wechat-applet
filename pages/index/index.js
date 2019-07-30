@@ -17,6 +17,7 @@ Page({
         isAgree: false,
         account: 12345698745,
         password: 123456,
+        isShow: true,
     },
     //事件处理函数
     bindItemTap: function () {
@@ -37,6 +38,35 @@ Page({
         //this.getData2();
         // this.getData3();
     },
+
+    /**
+     *  绑定到 用户信息页面
+     */
+    bindUInfoTap: function () {
+        wx.navigateTo({
+            url: '../uinfo/uinfo'
+        })
+    },
+
+    onShow: function () {
+        this.go2UInfoPage();
+    },
+
+    /**
+     *  前往用户信息页面
+     */
+    go2UInfoPage: function () {
+        var token = wx.getStorageSync("token");
+        if (token) {
+            console.log("---------------token:" + token);
+            this.bindUInfoTap();
+        } else {
+            this.setData({
+                isShow: true
+            });
+        }
+    },
+
     upper: function () {
         wx.showNavigationBarLoading()
         this.refresh();
@@ -46,6 +76,7 @@ Page({
             wx.stopPullDownRefresh();
         }, 2000);
     },
+
     lower: function (e) {
         wx.showNavigationBarLoading();
         var that = this;
@@ -242,13 +273,18 @@ Page({
         var index_api = netApi.api.host + netApi.api.uri.phone_login;
         util.HttpRequest.send(index_api, params)
             .then(function (data) {
-
+                var content = data.data.content;
+                var token = content.token;
+                var reqMid = content.mid;
+                wx.setStorageSync("token", token);
+                wx.setStorageSync("reqMid", reqMid);
                 that.setData({
-
+                    account: null,
+                    password: null,
+                    isShow: false,
                 });
-                console.log(data);
+                that.go2UInfoPage();
             });
-
     },
 
 })

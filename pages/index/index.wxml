@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml" wx:if="{{isShow}}">
     <view class="page__hd">
         <view class="page__title">系统登录</view>
         <view class="page__desc">欢迎使用 xxx 管理系统</view>
@@ -32,7 +32,7 @@
 
     </view>
 </view>
-
+<include  src="../../templates/footer/footer.wxml"/>
 
         <!--<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
           <view class="search flex-wrp">

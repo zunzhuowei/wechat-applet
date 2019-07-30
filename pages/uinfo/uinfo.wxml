@@ -1,0 +1,24 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">用户信息页</view>
+        <view class="page__desc">用户信息详情</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+        <view class="weui-flex">
+            <view class="weui-flex__item">
+                <view class="placeholder">{{member.email}}</view>
+            </view>
+        </view>
+        <view class="weui-flex">
+            <view class="weui-flex__item">
+                <view class="placeholder">{{member.mid}}</view>
+            </view>
+        </view>
+        <view class="weui-flex">
+            <view class="weui-flex__item">
+                <view class="placeholder">{{member.tel}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<include  src="../../templates/footer/footer.wxml"/>
