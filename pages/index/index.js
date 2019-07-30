@@ -1,16 +1,22 @@
 //index.js
 
-var util = require('../../utils/util.js')
+var util = require('../../utils/util.js');
+var netApi = require('../../net/netApi.js');
+
 var app = getApp()
 Page({
+    // onReady: function(){
+    //     wx.navigateTo({
+    //         url: '../register/register'
+    //     })
+    // },
     data: {
         feed: [],
         feed_length: 0,
         showTopTips: false,
         isAgree: false,
-        phone: "xxxxx",
-        email: "33xxx4xx1@adfadsf.com",
-        vcode: "",
+        account: 12345698745,
+        password: 123456,
     },
     //事件处理函数
     bindItemTap: function () {
@@ -151,26 +157,92 @@ Page({
             })
         }, 3000)
     },
-    doSubmit: function(){
+
+    /**
+     *  显示异常
+     * @param param 校验的参数
+     * @param errTipsInfo 提示异常信息
+     * @returns {boolean} 是否显示异常
+     */
+    showErr: function (param, errTipsInfo) {
         var that = this;
+        if (!param) {
+            this.setData({
+                showTopTips: true,
+                errTipsInfo: errTipsInfo,
+            });
+            setTimeout(function () {
+                that.setData({
+                    showTopTips: false,
+                    errTipsInfo: null,
+                });
+            }, 3000);
+            return true;
+        }
+        return false;
+    },
 
-        // this.setData({
-        //     showTopTips: true
-        // });
-        // setTimeout(function(){
-        //     that.setData({
-        //         showTopTips: false
-        //     });
-        // }, 3000);
+    /**
+     *  绑定同意
+     * @param e
+     */
+    bindAgreeChange: function (e) {
+        this.setData({
+            isAgree: !!e.detail.value.length
+        });
+    },
 
+    /**
+     *  绑定账号
+     * @param e
+     */
+    bindAccountInput: function(e) {
+        this.setData({
+            account: e.detail.value
+        })
+    },
+
+    /**
+     *  绑定密码
+     * @param e
+     */
+    bindPasswordInput: function(e) {
+        this.setData({
+            password: e.detail.value
+        })
+    },
+
+    /**
+     *  跳转到注册页面
+     */
+    bindRegTap:function () {
+        wx.navigateTo({
+            url: '../register/register'
+        })
+    },
+
+    /**
+     *  执行登录
+     */
+    doLogin: function(){
+        var that = this;
         var params = {
-            phone: that.data.phone,
-            email: that.data.email,
+            phone: that.data.account,
+            password: that.data.password,
         };
 
-        var index_api = 'http://127.0.0.1:5566/api/member/phone/register/check/code';
+        if (this.showErr(params.phone, "手机号不能为空！")) {
+            return;
+        }
+
+        if (this.showErr(params.password, "密码不能为空！")) {
+            return;
+        }
+
+        var index_api = netApi.api.host + netApi.api.uri.phone_login;
         util.HttpRequest.send(index_api, params)
             .then(function (data) {
+
                 that.setData({
 
                 });
@@ -178,24 +250,5 @@ Page({
             });
 
     },
-    bindAgreeChange: function (e) {
-        this.setData({
-            isAgree: !!e.detail.value.length
-        });
-    },
-    bindEmailInput: function(e) {
-        this.setData({
-            email: e.detail.value
-        })
-    },
-    bindPhoneInput: function(e) {
-        this.setData({
-            phone: e.detail.value
-        })
-    },
-    bindVcodeInput: function(e) {
-        this.setData({
-            vcode: e.detail.value
-        })
-    },
+
 })

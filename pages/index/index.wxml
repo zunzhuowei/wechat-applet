@@ -7,109 +7,79 @@
     <view class="page__bd">
         <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
         <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell weui-cell_input">
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
                 <view class="weui-cell__hd">
-                    <view class="weui-label">邮箱地址</view>
+                    <view class="weui-label">账号</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入邮箱地址..." bindinput="bindEmailInput" value="{{email}}"/>
+                    <input class="weui-input" placeholder="请输入账号..." bindinput="bindAccountInput" value="{{account}}"/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input weui-cell_vcode">
                 <view class="weui-cell__hd">
-                    <view class="weui-label">手机号码</view>
+                    <view class="weui-label">密码</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入手机号..."  bindinput="bindPhoneInput" value="{{phone}}"/>
-                </view>
-            </view>
-            <view class="weui-cell weui-cell_input weui-cell_vcode">
-                <view class="weui-cell__hd">
-                    <view class="weui-label">验证码</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入验证码..."   bindinput="bindVcodeInput"/>
+                    <input class="weui-input" placeholder="密码..." type="password"  value="{{password}}" bindinput="bindPasswordInput"/>
                 </view>
             </view>
         </view>
-        <view class="weui-cells__tips">底部说明文字底部说明文字</view>
-
-        <checkbox-group bindchange="bindAgreeChange">
-            <label class="weui-agree" for="weuiAgree">
-                <view class="weui-agree__text">
-                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}"></checkbox>
-                    <view class="weui-agree__checkbox-icon">
-                        <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
-                    </view>
-                    阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
-                </view>
-            </label>
-        </checkbox-group>
+        <view class="weui-cells__tips"><a style="color:red;text-decoration:none;border-bottom:1px solid #F00;" bindtap="bindRegTap">没有账号，点击注册?</a></view>
 
         <view class="weui-btn-area">
-            <button class="weui-btn" type="primary" bindtap="doSubmit" >确定</button>
+            <button class="weui-btn" type="primary" bindtap="doLogin">确定</button>
         </view>
 
     </view>
 </view>
 
 
+        <!--<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+          <view class="search flex-wrp">
+              <view class="search-left flex-item">
+                  <image src="../../images/search.png"></image>
+                  <input placeholder="搜索话题, 问题或人" placeholder-class="search-placeholder"/>
+              </view>
+              <view class="search-right flex-item" bindtap="upper">
+                  <image src="../../images/lighting.png"></image>
+              </view>
+          </view>
 
-
-
-
-
-
-
-
-
-
-<!--<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-  <view class="search flex-wrp">
-      <view class="search-left flex-item">
-          <image src="../../images/search.png"></image>
-          <input placeholder="搜索话题, 问题或人" placeholder-class="search-placeholder"/>
-      </view>
-      <view class="search-right flex-item" bindtap="upper">
-          <image src="../../images/lighting.png"></image>
-      </view>
-  </view>
-
-    <block wx:for="{{feed}}" wx:for-index="idx" wx:key="{{feed}}" wx:for-item="item" data-idx="{{idx}}">
-        <view class="feed-item">
-            <view class="feed-source">
-                <a class="">
-                    <view class="avatar">
-                        <image src="{{item.feed_source_img}}"></image>
+            <block wx:for="{{feed}}" wx:for-index="idx" wx:key="{{feed}}" wx:for-item="item" data-idx="{{idx}}">
+                <view class="feed-item">
+                    <view class="feed-source">
+                        <a class="">
+                            <view class="avatar">
+                                <image src="{{item.feed_source_img}}"></image>
+                            </view>
+                            <text>{{item.feed_source_name}}{{item.feed_source_txt}}</text>
+                        </a>
+                        <image class="item-more" mode="aspectFit" src="../../images/more.png"></image>
                     </view>
-                    <text>{{item.feed_source_name}}{{item.feed_source_txt}}</text>
-                </a>
-                <image class="item-more" mode="aspectFit" src="../../images/more.png"></image>
-            </view>
-            <view class="feed-content">
-                <view class="question" qid="{{question_id}}" bindtap="bindQueTap">
-                    <a class="question-link">
-                        <text>{{item.question}}</text>
-                    </a>
-                </view>
-                <view class="answer-body">
-                    <view bindtap="bindItemTap">
-                        <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
-                    </view>
-                    <view class="answer-actions" bindtap="bindItemTap">
-                        <view class="like dot">
-                            <a>{{item.good_num}} 赞同 </a>
+                    <view class="feed-content">
+                        <view class="question" qid="{{question_id}}" bindtap="bindQueTap">
+                            <a class="question-link">
+                                <text>{{item.question}}</text>
+                            </a>
                         </view>
-                        <view class="comments dot">
-                            <a>{{item.comment_num}} 评论 </a>
-                        </view>
-                        <view class="follow-it">
-                            <a>关注问题</a>
+                        <view class="answer-body">
+                            <view bindtap="bindItemTap">
+                                <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
+                            </view>
+                            <view class="answer-actions" bindtap="bindItemTap">
+                                <view class="like dot">
+                                    <a>{{item.good_num}} 赞同 </a>
+                                </view>
+                                <view class="comments dot">
+                                    <a>{{item.comment_num}} 评论 </a>
+                                </view>
+                                <view class="follow-it">
+                                    <a>关注问题</a>
+                                </view>
+                            </view>
                         </view>
                     </view>
                 </view>
-            </view>
-        </view>
-    </block>
-</scroll-view>-->
+            </block>
+        </scroll-view>-->
 

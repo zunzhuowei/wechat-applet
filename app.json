@@ -6,7 +6,8 @@
     "pages/chat/chat",
     "pages/more/more",
     "pages/answer/answer",
-    "pages/question/question"
+    "pages/question/question",
+    "pages/register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",
