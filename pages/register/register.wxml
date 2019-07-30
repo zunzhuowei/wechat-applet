@@ -75,5 +75,5 @@
 
     </view>
 </view>
-<include  src="../../templates/footer/footer.wxml"/>
+<template is="footer" data="{{...footer}}"/>
 

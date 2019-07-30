@@ -16,6 +16,10 @@ Page({
         isAgree: false,
         showTopTips: false,
         errTipsInfo: null,
+        footer:{
+            company: "WeUI注册",
+            copyright: "2008-2016 weui.",
+        }
     },
 
     /**
