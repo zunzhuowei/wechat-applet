@@ -4,7 +4,6 @@ var netApi = require('netApi.js');
 var HttpRequest;
 (function () {
     HttpRequest = {
-        javaSecrect: "ZXgZz*L8WiLW%8jXKbom0NmB9%UAaJMP",
         send: function (url, params) {
             //debugger
             var parameters = Object.assign({}, {}, params);
@@ -21,7 +20,7 @@ var HttpRequest;
             for (var ki in sdic) {
                 sortStr += sdic[ki] + "=" + obj[sdic[ki]] + "&";
             }
-            var sortParamsStr = sortStr + "key=" + this.javaSecrect;
+            var sortParamsStr = sortStr + "key=" + netApi.secrect;
             var md5Str = md5.hex_md5(sortParamsStr);
             console.log("sortParamsStr ----:: " + sortParamsStr);
             console.log("md5Str ----:: " + md5Str);

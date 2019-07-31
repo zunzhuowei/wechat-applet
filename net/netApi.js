@@ -13,6 +13,16 @@ const env = {
     test_host: "http://192.168.8.43:5566",
 
     /**
+     *  本地签名秘钥
+     */
+    local_javaSecrect: "ZXgZz*L8WiLW%8jXKbom0NmB9%UAaJMP",
+
+    /**
+     *  测试签名秘钥
+     */
+    test_javaSecrect: "ZXgZz*L8WiLW%8jXKbom0NmB9%UAaJMP",
+
+    /**
      *  api 前缀
      */
     api_prefix: "/api",
@@ -23,7 +33,13 @@ const env = {
  *  使用的接口地址
  * @type {string}
  */
-var host = env.test_host;
+var host = env.local_host;
+
+/**
+ *  签名秘钥
+ * @type {string}
+ */
+var secrect = env.local_javaSecrect;
 
 /**
  *
@@ -126,4 +142,5 @@ var api = {
 module.exports = {
     api: api,
     host: host,
+    secrect: secrect,
 };
