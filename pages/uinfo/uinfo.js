@@ -1,6 +1,7 @@
 // pages/uinfo/uinfo.js
 var util = require('../../utils/util.js');
 var netApi = require('../../net/netApi.js');
+var net = require('../../net/net.js');
 
 Page({
 
@@ -113,7 +114,7 @@ Page({
     };
 
     var index_api = netApi.api.host + netApi.api.uri.get_members_infos;
-    util.HttpRequest.send(index_api, params)
+    net.HttpRequest.send(index_api, params)
         .then(function (data) {
           var content = data.data.content;
           //console.log(content);

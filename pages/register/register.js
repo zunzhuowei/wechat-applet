@@ -1,6 +1,7 @@
 // pages/register.js
 var util = require('../../utils/util.js');
 var netApi = require('../../net/netApi.js');
+var net = require('../../net/net.js');
 
 Page({
 
@@ -163,7 +164,7 @@ Page({
         }
 
         var index_api = netApi.api.host + netApi.api.uri.register_check_code;
-        util.HttpRequest.send(index_api, params)
+        net.HttpRequest.send(index_api, params)
             .then(function (data) {
                 that.setData({
 
@@ -233,7 +234,7 @@ Page({
         }
 
         var index_api = netApi.api.host + netApi.api.uri.phone_register;
-        util.HttpRequest.send(index_api, params)
+        net.HttpRequest.send(index_api, params)
             .then(function (data) {
                 that.setData({
 

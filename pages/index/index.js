@@ -2,6 +2,7 @@
 
 var util = require('../../utils/util.js');
 var netApi = require('../../net/netApi.js');
+var net = require('../../net/net.js');
 
 var app = getApp()
 Page({
@@ -128,7 +129,7 @@ Page({
         };
 
         var index_api = 'http://192.168.1.128:8080/happybeardapp/api/login.do';
-        util.HttpRequest.send(index_api, params)
+        net.HttpRequest.send(index_api, params)
             .then(function (data) {
             //this.setData({
             //
@@ -275,7 +276,7 @@ Page({
         }
 
         var index_api = netApi.api.host + netApi.api.uri.phone_login;
-        util.HttpRequest.send(index_api, params)
+        net.HttpRequest.send(index_api, params)
             .then(function (data) {
                 var content = data.data.content;
                 var token = content.token;
