@@ -18,6 +18,7 @@ Page({
         account: 12345698745,
         password: 123456,
         isShow: true,
+        errTipsInfo: null,
     },
     //事件处理函数
     bindItemTap: function () {
@@ -284,7 +285,12 @@ Page({
                     isShow: false,
                 });
                 that.go2UInfoPage();
-            });
+            })
+            .catch(function (data) {
+            console.log(data);
+            that.showErr(null, data.errMsg)
+        })
+        ;
     },
 
 })

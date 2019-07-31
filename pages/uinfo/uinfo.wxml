@@ -4,6 +4,7 @@
         <view class="page__desc">用户信息详情</view>
     </view>
     <view class="page__bd page__bd_spacing">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errTipsInfo}}</view>
         <view class="weui-flex">
             <view class="weui-flex__item">
                 <view class="placeholder">{{member.email}}</view>

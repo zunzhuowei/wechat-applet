@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    member: {}
+    member: {},
+    showTopTips: false,
+    errTipsInfo: null,
   },
 
   /**
@@ -77,6 +79,31 @@ Page({
   },
 
   /**
+   *  显示异常
+   * @param param 校验的参数
+   * @param errTipsInfo 提示异常信息
+   * @returns {boolean} 是否显示异常
+   */
+  showErr: function (param, errTipsInfo) {
+    var that = this;
+    if (!param) {
+      this.setData({
+        showTopTips: true,
+        errTipsInfo: errTipsInfo,
+      });
+
+      setTimeout(function () {
+        that.setData({
+          showTopTips: false,
+          errTipsInfo: null,
+        });
+      }, 2000);
+      return true;
+    }
+    return false;
+  },
+
+  /**
    *  初始化用户数据
    */
   initUInfoData: function (token) {
@@ -93,7 +120,11 @@ Page({
           that.setData({
             member: content.members,
           });
-        });
+        })
+        .catch(function (data) {
+          console.log(data);
+          that.showErr(null, data.errMsg)
+    });
   },
 
   /**
