@@ -1,6 +1,5 @@
 // pages/register.js
 var util = require('../../utils/util.js');
-var netApi = require('../../net/netApi.js');
 var net = require('../../net/net.js');
 
 Page({
@@ -163,7 +162,7 @@ Page({
             return;
         }
 
-        var index_api = netApi.api.host + netApi.api.uri.register_check_code;
+        var index_api = net.netApi.api.register_check_code;
         net.HttpRequest.send(index_api, params)
             .then(function (data) {
                 that.setData({
@@ -171,6 +170,10 @@ Page({
                 });
                 console.log(data);
                 console.log(data.content)
+            })
+            .catch(function (data) {
+                console.log(data);
+                that.showErr(null, data.errMsg)
             });
     },
 
@@ -197,6 +200,7 @@ Page({
         }
         return false;
     },
+
     /**
      *  注册账号
      */
@@ -233,7 +237,7 @@ Page({
             return;
         }
 
-        var index_api = netApi.api.host + netApi.api.uri.phone_register;
+        var index_api = net.api.host + net.api.uri.phone_register;
         net.HttpRequest.send(index_api, params)
             .then(function (data) {
                 that.setData({
@@ -241,6 +245,10 @@ Page({
                 });
                 console.log(data);
                 console.log(data.content)
+            })
+            .catch(function (data) {
+                console.log(data);
+                that.showErr(null, data.errMsg)
             });
     }
 })

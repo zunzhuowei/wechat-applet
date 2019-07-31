@@ -1,4 +1,5 @@
 var md5 = require('../utils/md5.js');
+var netApi = require('netApi.js');
 
 var HttpRequest;
 (function () {
@@ -55,4 +56,5 @@ var HttpRequest;
 
 module.exports = {
     HttpRequest: HttpRequest,
+    netApi: netApi,
 };

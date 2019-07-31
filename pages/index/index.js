@@ -1,7 +1,5 @@
 //index.js
-
 var util = require('../../utils/util.js');
-var netApi = require('../../net/netApi.js');
 var net = require('../../net/net.js');
 
 var app = getApp()
@@ -275,7 +273,7 @@ Page({
             return;
         }
 
-        var index_api = netApi.api.host + netApi.api.uri.phone_login;
+        var index_api = net.netApi.api.phone_login;
         net.HttpRequest.send(index_api, params)
             .then(function (data) {
                 var content = data.data.content;
