@@ -43,8 +43,9 @@ Page({
                     var uri = uris[key];
                     menu.api = host + uriPrefix + uri;
                     menu.url = uri;
+                    that.generateInfo(menu, uri);
 
-                    temp.unshift(menu);
+                    temp.unshift(menu); // 放进数组里
                 }
                 that.setData({
                     menus: temp,
@@ -98,33 +99,9 @@ Page({
         var id = option.currentTarget.id;
         var menu = this.data.menus[id];
         console.log(menu);
-        var uri = menu.url;
-        var api = menu.api;
-
-        // 前往用户信息界面
-        if (this.str_contain(net.netApi.api.get_members_infos, uri)) {
-            wx.navigateTo({
-                url: '../uinfo/uinfo?http=' + api
-            });
-        }
-        // 前往菜单界面
-        else if (this.str_contain(net.netApi.api.get_role_permissions_apis, uri)) {
-            wx.reLaunch({
-                url: '../menu/menu?id=1'
-            });
-        }
-        // 前往重置密码界面
-        else if (this.str_contain(net.netApi.api.reset_phone_login_password_by_old, uri)) {
-            wx.reLaunch({
-                url: '../menu/menu?id=1'
-            });
-        }
-        // 前往登出界面
-        else if (this.str_contain(net.netApi.api.member_phone_logout, uri)) {
-            wx.reLaunch({
-                url: '../menu/menu?id=1'
-            });
-        }
+        wx.navigateTo({
+            url: menu.page,
+        });
     },
 
     /**
@@ -135,5 +112,42 @@ Page({
     str_contain: function (string, item) {
         return string.indexOf(item) !== -1;
     },
+
+    /**
+     *  构建菜单
+     * @param menu 菜单对象
+     * @param uri 请求 uri
+     */
+    generateInfo: function (menu, uri) {
+        menu.name = "菜单:" + uri;
+        menu.descr = "描述:" + uri;
+        menu.page = "";
+        var api = menu.api;
+
+        // 前往用户信息界面
+        if (this.str_contain(net.netApi.api.get_members_infos, uri)) {
+            menu.name = "用户信息";
+            menu.descr = "描述用户信息";
+            menu.page = "../uinfo/uinfo?http=" + api;
+        }
+        // 前往菜单界面
+        else if (this.str_contain(net.netApi.api.get_role_permissions_apis, uri)) {
+            menu.name = "菜单";
+            menu.descr = "描述菜单";
+            menu.page = "../menu/menu?http=" + api;
+        }
+        // 前往重置密码界面
+        else if (this.str_contain(net.netApi.api.reset_phone_login_password_by_old, uri)) {
+            menu.name = "重置密码";
+            menu.descr = "描述重置密码";
+            menu.page = "../menu/menu?http=" + api;
+        }
+        // 前往登出界面
+        else if (this.str_contain(net.netApi.api.member_phone_logout, uri)) {
+            menu.name = "登出";
+            menu.descr = "描述登出";
+            menu.page = "../menu/menu?http=" + api;
+        }
+    }
 
 })
