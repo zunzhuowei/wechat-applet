@@ -58,6 +58,16 @@ function discoveryNext(){
   return discovery_next.next;
 }
 
+/**
+ *  强制数字截取位数
+ * @param value 数字值
+ * @param sub_len 截取的数字长度
+ * @returns {string} 截取到的长度
+ */
+function subNumber(value, sub_len) {
+  return value.replace(/[^\d]/g, '').substr(0, sub_len);
+}
+
 module.exports = {
   formatTime: formatTime,
   getData: getData,
@@ -65,6 +75,7 @@ module.exports = {
   getNext: getNext,
   getDiscovery: getDiscovery,
   discoveryNext: discoveryNext,
+  subNumber: subNumber,
 };
 
 

@@ -231,8 +231,9 @@ Page({
      * @param e
      */
     bindAccountInput: function(e) {
+        var value = util.subNumber(e.detail.value, 11);
         this.setData({
-            account: e.detail.value
+            account: value
         })
     },
 
