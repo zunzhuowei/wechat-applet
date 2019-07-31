@@ -23,9 +23,9 @@ var HttpRequest;
             }
             var sortParamsStr = sortStr + "key=" + this.javaSecrect;
             var md5Str = md5.hex_md5(sortParamsStr);
-            console.log("sortParamsStr ----::\n" + sortParamsStr);
-            console.log("md5Str ----::\n" + md5Str);
-            console.log(url + "------------------------------------------------\n");
+            console.log("sortParamsStr ----:: " + sortParamsStr);
+            console.log("md5Str ----:: " + md5Str);
+            console.log("url ------:: " + url + "\n");
             parameters.sign = md5Str.toUpperCase();
             return new Promise(function (resolve, reject) {
                 wx.request({

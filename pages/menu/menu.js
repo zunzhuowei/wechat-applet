@@ -8,7 +8,6 @@ Page({
      * 页面的初始数据
      */
     data: {
-        grids: [0, 1, 2, 3, 4, 5, 6, 7, 8],
         menus: [],
     },
 
@@ -102,10 +101,39 @@ Page({
         var uri = menu.url;
         var api = menu.api;
 
-        if (net.netApi.api.get_members_infos.indexOf(uri) !== -1) {
+        // 前往用户信息界面
+        if (this.str_contain(net.netApi.api.get_members_infos, uri)) {
             wx.navigateTo({
                 url: '../uinfo/uinfo?http=' + api
             });
         }
+        // 前往菜单界面
+        else if (this.str_contain(net.netApi.api.get_role_permissions_apis, uri)) {
+            wx.reLaunch({
+                url: '../menu/menu?id=1'
+            });
+        }
+        // 前往重置密码界面
+        else if (this.str_contain(net.netApi.api.reset_phone_login_password_by_old, uri)) {
+            wx.reLaunch({
+                url: '../menu/menu?id=1'
+            });
+        }
+        // 前往登出界面
+        else if (this.str_contain(net.netApi.api.member_phone_logout, uri)) {
+            wx.reLaunch({
+                url: '../menu/menu?id=1'
+            });
+        }
     },
+
+    /**
+     * @param string 字符串
+     * @param item 校验是否包含的字符串
+     * @returns {boolean} 是否包含
+     */
+    str_contain: function (string, item) {
+        return string.indexOf(item) !== -1;
+    },
+
 })
