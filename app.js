@@ -1,11 +1,12 @@
 //app.js
 App({
 
-    onLaunch: function () {
+    onLaunch: function (options) {
         //调用API从本地缓存中获取数据
-        var logs = wx.getStorageSync('logs') || []
-        logs.unshift(Date.now())
-        wx.setStorageSync('logs', logs)
+        //var logs = wx.getStorageSync('logs') || [];
+        //logs.unshift(Date.now());
+        //wx.setStorageSync('logs', logs);
+        //console.log("options.query " + options.query);
     },
 
     getUserInfo: function (cb) {
@@ -29,6 +30,24 @@ App({
 
     globalData: {
         userInfo: null,
+    },
+
+    onShow:function (options) {
+        console.log(options);
+    },
+
+    onError:function (options) {
+        
+    },
+
+    onPageNotFound:function (options) {
+        //wx.redirectTo({
+        //    url: 'pages/...'
+        //}) // 如果是 tabbar 页面，请使用 wx.switchTab
+    },
+
+    onHide:function () {
+
     },
 
 })

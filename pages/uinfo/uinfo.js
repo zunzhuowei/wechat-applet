@@ -116,7 +116,7 @@ Page({
     util.HttpRequest.send(index_api, params)
         .then(function (data) {
           var content = data.data.content;
-          console.log(content);
+          //console.log(content);
           that.setData({
             member: content.members,
           });

@@ -44,9 +44,12 @@ Page({
      *  绑定到 用户信息页面
      */
     bindUInfoTap: function () {
-        wx.navigateTo({
-            url: '../uinfo/uinfo'
-        })
+        //wx.navigateTo({
+        //   url: '../uinfo/uinfo'
+        //});
+        wx.reLaunch({
+            url: '../menu/menu?id=1'
+        });
     },
 
     onShow: function () {

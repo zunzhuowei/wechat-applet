@@ -8,7 +8,8 @@
     "pages/answer/answer",
     "pages/question/question",
     "pages/register/register",
-    "pages/uinfo/uinfo"
+    "pages/uinfo/uinfo",
+    "pages/menu/menu"
   ],
   "window": {
     "backgroundTextStyle": "light",
