@@ -195,7 +195,7 @@ Page({
                     showTopTips: false,
                     errTipsInfo: null,
                 });
-            }, 3000);
+            }, 2000);
             return true;
         }
         return false;

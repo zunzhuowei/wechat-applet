@@ -18,39 +18,40 @@
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
-  "tabBar": {
+  "______删除:tabBar": {
     "color": "#626567",
     "selectedColor": "#2A8CE5",
     "backgroundColor": "#FBFBFB",
     "borderStyle": "white",
+    "position": "bottom",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "",
+        "text": "首页",
         "iconPath": "images/index.png",
         "selectedIconPath": "images/index_focus.png"
       },
       {
         "pagePath": "pages/discovery/discovery",
-        "text": "",
+        "text": "发现",
         "iconPath": "images/discovery.png",
         "selectedIconPath": "images/discovery_focus.png"
       },
       {
         "pagePath": "pages/notify/notify",
-        "text": "",
+        "text": "通知",
         "iconPath": "images/ring.png",
         "selectedIconPath": "images/ring_focus.png"
       },
       {
         "pagePath": "pages/chat/chat",
-        "text": "",
+        "text": "私信",
         "iconPath": "images/chat.png",
         "selectedIconPath": "images/chat_focus.png"
       },
       {
         "pagePath": "pages/more/more",
-        "text": "",
+        "text": "更多",
         "iconPath": "images/burger.png",
         "selectedIconPath": "images/burger_focus.png"
       }
@@ -60,6 +61,7 @@
     "request": 10000,
     "downloadFile": 10000
   },
+  "style": "v2",
   "debug": true,
   "sitemapLocation": "sitemap.json"
 }

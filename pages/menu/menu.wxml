@@ -5,15 +5,7 @@
         <view class="page__desc">选择菜单</view>
     </view>
     <view class="page__bd">
-<!--        <view class="weui-grids">
-            <block class="weui-grid" wx:for="{{menus}}" wx:key="item" wx:for-index="id">
-                <view id="{{id}}" class="weui-grid" hover-class="weui-grid_active" bindtap="nav2Target">
-                    <image class="weui-grid__icon" src="../../images/icon_tabbar.png"></image>
-                    <view class="weui-grid__label">{{id}}</view>
-                </view>
-            </block>
-        </view>
-        -->
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errTipsInfo}}</view>
 
         <view class="weui-cells weui-cells_after-title">
             <block class="weui-grid" wx:for="{{menus}}" wx:key="item" wx:for-index="id">

@@ -12,11 +12,11 @@ Page({
     data: {
         feed: [],
         feed_length: 0,
-        showTopTips: false,
         isAgree: false,
         account: 12345698745,
         password: 123456,
         isShow: true,
+        showTopTips: false,
         errTipsInfo: null,
     },
     //事件处理函数
@@ -210,7 +210,7 @@ Page({
                     showTopTips: false,
                     errTipsInfo: null,
                 });
-            }, 3000);
+            }, 2000);
             return true;
         }
         return false;
