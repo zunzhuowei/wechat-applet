@@ -39,8 +39,13 @@ Page({
                 var uris = content.uris;
                 var temp = [];
                 for (var key in uris) {
+                     var uri = uris[key];
+                     // 去除菜单地址
+                    if (that.str_contain(url, uri)) {
+                      continue;
+                    }
+
                     var menu = {};
-                    var uri = uris[key];
                     menu.api = host + uriPrefix + uri;
                     menu.url = uri;
                     that.generateInfo(menu, uri);
