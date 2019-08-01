@@ -21,7 +21,7 @@
 		"enhance": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.3.2",
+	"libVersion": "2.8.0",
 	"appid": "wx8796794f0ea59345",
 	"projectname": "zhihu",
 	"debugOptions": {

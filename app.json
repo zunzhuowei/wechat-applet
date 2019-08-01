@@ -18,7 +18,8 @@
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
-  "______删除:tabBar": {
+  "tabBar": {
+    "custom": true,
     "color": "#626567",
     "selectedColor": "#2A8CE5",
     "backgroundColor": "#FBFBFB",
