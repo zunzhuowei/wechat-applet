@@ -33,7 +33,7 @@ App({
     },
 
     onShow:function (options) {
-        console.log(options);
+        //console.log(options);
     },
 
     onError:function (options) {

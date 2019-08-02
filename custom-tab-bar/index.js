@@ -20,8 +20,10 @@ Component({
             text: "私信"
         }]
     },
+
     attached() {
     },
+
     methods: {
         switchTab(e) {
             const data = e.currentTarget.dataset
@@ -31,5 +33,6 @@ Component({
                 selected: data.index
             })
         }
-    }
+    },
+
 })
