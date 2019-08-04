@@ -61,7 +61,7 @@ Page({
     go2UInfoPage: function () {
         var token = wx.getStorageSync("token");
         if (token) {
-            //console.log("---------------token:" + token);
+            console.log("---------------token:" + token);
             this.bindUInfoTap();
         } else {
             this.setData({

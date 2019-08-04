@@ -23,4 +23,7 @@
     </view>
 </view>
 
-<include  src="../../templates/footer/footer.wxml"></include>
+<!--<include  src="../../templates/footer/footer.wxml"></include>-->
+
+<!-- 自定义 底部 tabbar -->
+<custom-tabbar></custom-tabbar>
