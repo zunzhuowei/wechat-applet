@@ -25,7 +25,8 @@ Component({
                 selectedIconPath: "/images/chat_focus.png",
                 text: "私信"
             }, {
-                pagePath: "/pages/uinfo/uinfo",
+                // pagePath: "/pages/uinfo/uinfo",
+                pagePath: "/pages/mmore/mmore",
                 iconPath: "/images/burger.png",
                 selectedIconPath: "/images/burger_focus.png",
                 text: "更多"

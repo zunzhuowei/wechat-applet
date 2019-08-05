@@ -9,7 +9,8 @@
     "pages/question/question",
     "pages/register/register",
     "pages/uinfo/uinfo",
-    "pages/menu/menu"
+    "pages/menu/menu",
+    "pages/mmore/mmore"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -51,7 +52,7 @@
         "selectedIconPath": "images/chat_focus.png"
       },
       {
-        "pagePath": "pages/more/more",
+        "pagePath": "pages/mmore/mmore",
         "text": "更多",
         "iconPath": "images/burger.png",
         "selectedIconPath": "images/burger_focus.png"

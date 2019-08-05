@@ -117,6 +117,9 @@ Page({
 
     //var index_api = net.netApi.api.get_members_infos;
     var index_api = this.data.http;
+    if (!index_api) {
+      index_api = net.netApi.api.get_members_infos;
+    }
     net.HttpRequest.send(index_api, params)
         .then(function (data) {
           var content = data.data.content;

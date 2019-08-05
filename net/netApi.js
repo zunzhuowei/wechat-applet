@@ -33,7 +33,7 @@ const env = {
  *  使用的接口地址
  * @type {string}
  */
-var host = env.local_host;
+var host = env.test_host;
 
 /**
  *  签名秘钥
