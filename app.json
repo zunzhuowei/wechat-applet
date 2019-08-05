@@ -10,7 +10,8 @@
     "pages/register/register",
     "pages/uinfo/uinfo",
     "pages/menu/menu",
-    "pages/mmore/mmore"
+    "pages/mmore/mmore",
+    "pages/restpw/restpw"
   ],
   "window": {
     "backgroundTextStyle": "light",
