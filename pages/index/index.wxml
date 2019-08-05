@@ -35,7 +35,7 @@
 
 <view>
     <!-- 以下是对一个自定义组件的引用 -->
-    <test-com-name inner-text="Some text"></test-com-name>
+<!--    <test-com-name inner-text="Some text"></test-com-name>-->
 </view>
 
 <include  src="../../templates/footer/footer.wxml"></include>

@@ -1,70 +1,37 @@
 <!--pages/mmore/mmore.wxml-->
 <view class="container more">
     <view class="user flex-wrp">
+        <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
         <view class="avatar flex-item">
-            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+            <open-data type="userAvatarUrl" class="userinfo-avatar" background-size="cover"></open-data>
         </view>
         <view class="user-info flex-item">
-            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-            <text class="edit">查看或编辑个人主页</text>
+            <open-data type="userNickName" class="userinfo-nickname"></open-data>
+            <text class="edit">ID: {{member.mid}}</text>
+            <text class="edit">Email: {{member.email}}</text>
+            <text class="edit">Tel: {{member.tel}}</text>
         </view>
     </view>
 
+    <!-- 需要使用 button 来授权登录 -->
+    <button wx:if="{{canIUse && showAuth}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<!--    <view wx:else>请升级微信版本</view>-->
+
     <view class="my">
-        <view class="my-item flex-wrp">
+        <view class="my-item flex-wrp" bindtap="resetPw">
             <view class="myitem-icon flex-item" >
                 <image src="../../images/eye.png"></image>
             </view>
             <view class="myitem-name flex-item">
-                <text>我的关注</text>
+                <text>重置密码</text>
             </view>
         </view>
-        <view class="my-item flex-wrp">
+        <view class="my-item flex-wrp" bindtap="logout">
             <view class="myitem-icon flex-item" >
                 <image src="../../images/star.png"></image>
             </view>
             <view class="myitem-name flex-item">
-                <text>我的收藏</text>
-            </view>
-        </view>
-        <view class="my-item flex-wrp">
-            <view class="myitem-icon flex-item" >
-                <image src="../../images/draft.png"></image>
-            </view>
-            <view class="myitem-name flex-item">
-                <text>我的草稿</text>
-            </view>
-        </view>
-        <view class="my-item flex-wrp">
-            <view class="myitem-icon flex-item" >
-                <image src="../../images/recent.png"></image>
-            </view>
-            <view class="myitem-name flex-item">
-                <text>最近浏览</text>
-            </view>
-        </view>
-        <view class="my-item flex-wrp">
-            <view class="myitem-icon flex-item" >
-                <image src="../../images/book.png"></image>
-            </view>
-            <view class="myitem-name flex-item">
-                <text>我的书架</text>
-            </view>
-        </view>
-        <view class="my-item flex-wrp">
-            <view class="myitem-icon flex-item" >
-                <image src="../../images/live.png"></image>
-            </view>
-            <view class="myitem-name flex-item">
-                <text>我的 Live</text>
-            </view>
-        </view>
-        <view class="my-item flex-wrp">
-            <view class="myitem-icon flex-item" >
-                <image src="../../images/zhi.png"></image>
-            </view>
-            <view class="myitem-name flex-item">
-                <text>我的值乎</text>
+                <text>登出</text>
             </view>
         </view>
     </view>
@@ -72,3 +39,63 @@
 
 <!-- 自定义 底部 tabbar -->
 <custom-tabbar></custom-tabbar>
+
+<!--
+<view class="my">
+    <view class="my-item flex-wrp">
+        <view class="myitem-icon flex-item" >
+            <image src="../../images/eye.png"></image>
+        </view>
+        <view class="myitem-name flex-item">
+            <text>我的关注</text>
+        </view>
+    </view>
+    <view class="my-item flex-wrp">
+        <view class="myitem-icon flex-item" >
+            <image src="../../images/star.png"></image>
+        </view>
+        <view class="myitem-name flex-item">
+            <text>我的收藏</text>
+        </view>
+    </view>
+    <view class="my-item flex-wrp">
+        <view class="myitem-icon flex-item" >
+            <image src="../../images/draft.png"></image>
+        </view>
+        <view class="myitem-name flex-item">
+            <text>我的草稿</text>
+        </view>
+    </view>
+    <view class="my-item flex-wrp">
+        <view class="myitem-icon flex-item" >
+            <image src="../../images/recent.png"></image>
+        </view>
+        <view class="myitem-name flex-item">
+            <text>最近浏览</text>
+        </view>
+    </view>
+    <view class="my-item flex-wrp">
+        <view class="myitem-icon flex-item" >
+            <image src="../../images/book.png"></image>
+        </view>
+        <view class="myitem-name flex-item">
+            <text>我的书架</text>
+        </view>
+    </view>
+    <view class="my-item flex-wrp">
+        <view class="myitem-icon flex-item" >
+            <image src="../../images/live.png"></image>
+        </view>
+        <view class="myitem-name flex-item">
+            <text>我的 Live</text>
+        </view>
+    </view>
+    <view class="my-item flex-wrp">
+        <view class="myitem-icon flex-item" >
+            <image src="../../images/zhi.png"></image>
+        </view>
+        <view class="myitem-name flex-item">
+            <text>我的值乎</text>
+        </view>
+    </view>
+</view>-->
