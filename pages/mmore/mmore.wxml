@@ -26,6 +26,14 @@
                 <text>重置密码</text>
             </view>
         </view>
+        <view class="my-item flex-wrp" bindtap="resetPw2">
+            <view class="myitem-icon flex-item" >
+                <image src="../../images/eye.png"></image>
+            </view>
+            <view class="myitem-name flex-item">
+                <text>重置密码2</text>
+            </view>
+        </view>
         <view class="my-item flex-wrp" bindtap="logout">
             <view class="myitem-icon flex-item" >
                 <image src="../../images/star.png"></image>

@@ -7,35 +7,13 @@
     <view class="page__bd">
         <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errTipsInfo}}</view>
         <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                    <view class="weui-label">邮箱地址</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <text class="weui-input" >{{member.email}}</text>
-                </view>
-            </view>
-            <view class="weui-cell weui-cell_input weui-cell_vcode">
-                <view class="weui-cell__hd">
-                    <view class="weui-label">验证码</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入验证码..."
-                           bindinput="bindVcodeInput" value="{{vcode}}"/>
-                </view>
-                <view class="weui-cell__ft">
-                    <view class="weui-vcode-btn" bindtap="getVcode">获取验证码</view>
-                </view>
-            </view>
             <view class="weui-cell weui-cell_input weui-cell_vcode">
                 <view class="weui-cell__hd">
                     <view class="weui-label">旧密码</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入账号旧密码..." wx:if="{{vcode}}"
+                    <input class="weui-input" placeholder="请输入账号旧密码..."
                            type="password" bindinput="bindSrcPasswordInput" value="{{srcpassword}}" />
-                    <input class="weui-input" placeholder="请输入账号旧密码..." wx:else style="background:#EDEDED;"
-                           type="password" bindinput="bindSrcPasswordInput" value="{{srcpassword}}" disabled/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input weui-cell_vcode">
@@ -43,7 +21,7 @@
                     <view class="weui-label">新密码</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入账号新密码..." wx:if="{{vcode}}"
+                    <input class="weui-input" placeholder="请输入账号新密码..." wx:if="{{srcpassword}}"
                            type="password" bindinput="bindPasswordInput" value="{{password}}" />
                     <input class="weui-input" placeholder="请输入账号新密码..." wx:else style="background:#EDEDED;"
                            type="password" bindinput="bindPasswordInput" value="{{password}}" disabled/>
@@ -54,7 +32,7 @@
                     <view class="weui-label">确认密码</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入确认密码..." wx:if="{{vcode}}"
+                    <input class="weui-input" placeholder="请输入确认密码..." wx:if="{{srcpassword}}"
                            type="password" bindinput="bindConfirmPasswordInput" value="{{confirmPassword}}" />
                     <input class="weui-input" placeholder="请输入确认密码..." wx:else style="background:#EDEDED;"
                            type="password" bindinput="bindConfirmPasswordInput" value="{{confirmPassword}}" disabled/>

@@ -1,0 +1,39 @@
+<view class="page">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <icon type="{{isWarn ? 'warn' : 'success'}}" size="93"></icon>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">{{title}}</view>
+            <view class="weui-msg__desc">
+                {{desc}}
+                <!--<navigator url="" class="weui-msg__link">
+                    文字链接
+                </navigator>-->
+            </view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn" type="primary" wx:if="{{bt1}}" bindtap="openbt1">
+                    {{bt1}}
+                </button>
+                <button class="weui-btn" type="default" wx:if="{{bt2}}" bindtap="openbt2">
+                    {{bt2}}
+                </button>
+            </view>
+        </view>
+
+        <view hidden="{{flag ? false : true}}"> {{bt1url1}} </view>
+        <view hidden="{{flag ? false : true}}"> {{bt1url2}} </view>
+
+        <!--<view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator url="" class="weui-footer__link">底部链接文本</navigator>
+                </view>
+                <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
+            </view>
+        </view>-->
+
+    </view>
+</view>
