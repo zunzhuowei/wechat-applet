@@ -192,7 +192,7 @@ Page({
                 that.setData({});
                 if (data.data.success) {
                     wx.redirectTo({
-                        url: '../msg/msg_success?title=操作成功&desc=点击确定返回&bt1=确定&bt1url1=../mmore/mmore'
+                        url: '../msg/msg?title=操作成功&desc=点击确定返回&bt1=确定&bt1url1=../mmore/mmore'
                     });
                 } else {
                     that.showErr(null, data.data.code)
