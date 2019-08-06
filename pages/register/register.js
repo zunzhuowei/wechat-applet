@@ -237,14 +237,14 @@ Page({
             return;
         }
 
-        var index_api = net.api.host + net.api.uri.phone_register;
+        var index_api = net.netApi.api.phone_register;
         net.HttpRequest.send(index_api, params)
             .then(function (data) {
-                that.setData({
+                that.setData({});
+                if (data.success) {
 
-                });
-                console.log(data);
-                console.log(data.content)
+                }
+                //console.log(data);
             })
             .catch(function (data) {
                 console.log(data);

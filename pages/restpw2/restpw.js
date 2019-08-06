@@ -13,6 +13,7 @@ Page({
         vcode: null,
         password: null,
         confirmPassword: null,
+        srcpassword: null,
     },
 
     /**
@@ -92,29 +93,7 @@ Page({
     onShareAppMessage: function () {
 
     },
-    /**
-     *  显示异常
-     * @param param 校验的参数
-     * @param errTipsInfo 提示异常信息
-     * @returns {boolean} 是否显示异常
-     */
-    showErr: function (param, errTipsInfo) {
-        var that = this;
-        if (!param) {
-            this.setData({
-                showTopTips: true,
-                errTipsInfo: errTipsInfo,
-            });
-            setTimeout(function () {
-                that.setData({
-                    showTopTips: false,
-                    errTipsInfo: null,
-                });
-            }, 2000);
-            return true;
-        }
-        return false;
-    },
+
     /**
      *  登出
      */
@@ -153,6 +132,12 @@ Page({
             });
     },
 
+    bindSrcPasswordInput: function (e) {
+        this.setData({
+            srcpassword: e.detail.value
+        })
+    },
+
     bindPasswordInput: function (e) {
         this.setData({
             password: e.detail.value
@@ -169,33 +154,41 @@ Page({
         var that = this;
         var params = {
             confirmPassword: that.data.confirmPassword,
-            password: that.data.password,
+            newPassword: that.data.password,
             checkCode: that.data.vcode,
+            srcPassword: that.data.isAgree,
         };
 
+        if (this.showErr(params.isAgree, "请勾选同意条款！")) {
+            return;
+        }
+        if (this.showErr(params.phone, "手机号不能为空！")) {
+            return;
+        }
+        if (this.showErr(params.email, "邮箱号不能为空！")) {
+            return;
+        }
         if (this.showErr(params.checkCode, "验证码不能为空！")) {
             return;
         }
-        if (this.showErr(params.password, "密码不能为空！")) {
+        if (this.showErr(params.passwd, "密码不能为空！")) {
             return;
         }
-        if (this.showErr(params.confirmPassword, "确认密码不能为空！")) {
+        if (this.showErr(params.confirmPasswd, "确认密码不能为空！")) {
             return;
         }
-        if (this.showErr(params.confirmPassword === params.password, "两次密码不一致！")) {
+        if (this.showErr(params.confirmPasswd === params.passwd, "两次密码不一致！")) {
             return;
         }
 
-        var index_api = net.netApi.api.reset_phone_login_password_by_email;
+        var index_api = net.api.host + net.api.uri.phone_register;
         net.HttpRequest.send(index_api, params)
             .then(function (data) {
-                that.setData({});
-                if (data.data.success) {
-                    wx.navigateBack(-1);
-                    //wx.clearStorageSync();
-                } else {
-                    that.showErr(null, data.data.code)
-                }
+                that.setData({
+
+                });
+                console.log(data);
+                console.log(data.content)
             })
             .catch(function (data) {
                 console.log(data);

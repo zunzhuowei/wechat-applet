@@ -29,6 +29,17 @@
             </view>
             <view class="weui-cell weui-cell_input weui-cell_vcode">
                 <view class="weui-cell__hd">
+                    <view class="weui-label">旧密码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入账号旧密码..." wx:if="{{vcode}}"
+                           type="password" bindinput="bindSrcPasswordInput" value="{{srcpassword}}" />
+                    <input class="weui-input" placeholder="请输入账号旧密码..." wx:else style="background:#EDEDED;"
+                           type="password" bindinput="bindSrcPasswordInput" value="{{srcpassword}}" disabled/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
                     <view class="weui-label">新密码</view>
                 </view>
                 <view class="weui-cell__bd">

@@ -11,7 +11,8 @@
     "pages/uinfo/uinfo",
     "pages/menu/menu",
     "pages/mmore/mmore",
-    "pages/restpw/restpw"
+    "pages/restpw/restpw",
+    "pages/restpw2/restpw"
   ],
   "window": {
     "backgroundTextStyle": "light",
