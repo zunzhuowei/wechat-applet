@@ -1,5 +1,5 @@
 <!--pages/mmore/mmore.wxml-->
-<view class="container more">
+<view class="container more page">
     <view class="user flex-wrp">
         <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
         <view class="avatar flex-item">
@@ -26,14 +26,15 @@
                 <text>重置密码</text>
             </view>
         </view>
-        <view class="my-item flex-wrp" bindtap="resetPw2">
+
+        <!--<view class="my-item flex-wrp" bindtap="resetPw2">
             <view class="myitem-icon flex-item" >
                 <image src="../../images/eye.png"></image>
             </view>
             <view class="myitem-name flex-item">
                 <text>重置密码2</text>
             </view>
-        </view>
+        </view>-->
         <view class="my-item flex-wrp" bindtap="logout">
             <view class="myitem-icon flex-item" >
                 <image src="../../images/star.png"></image>

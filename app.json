@@ -13,7 +13,8 @@
     "pages/mmore/mmore",
     "pages/restpw/restpw",
     "pages/restpw2/restpw",
-    "pages/msg/msg"
+    "pages/msg/msg",
+    "pages/resetpasswd/restpasswd"
   ],
   "window": {
     "backgroundTextStyle": "light",
