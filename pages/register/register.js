@@ -19,7 +19,8 @@ Page({
         footer:{
             company: "WeUI注册",
             copyright: "2008-2016 weui.",
-        }
+        },
+        getCodeText: "获取验证码",
     },
 
     /**
@@ -112,7 +113,7 @@ Page({
     bindPhoneInput: function(e) {
         this.setData({
             phone: e.detail.value
-        })
+        });
     },
 
     /**
@@ -122,7 +123,7 @@ Page({
     bindVcodeInput: function(e) {
         this.setData({
             vcode: e.detail.value
-        })
+        });
     },
 
     /**
@@ -132,7 +133,7 @@ Page({
     bindPasswordInput: function(e) {
         this.setData({
             password: e.detail.value
-        })
+        });
     },
 
     /**
@@ -142,13 +143,20 @@ Page({
     bindConfirmPasswordInput: function(e) {
         this.setData({
             confirmPassword: e.detail.value
-        })
+        });
     },
 
     /**
      *  获取验证码
      */
     getVcode:function () {
+
+        //util.TimeDown("2019-08-07 23:22:22", function (d, h, m, s) {
+        //    console.log("d,h,m,s ---:: d:" + d + ",h:" + h + ",m:" + m + ",s:" + s);
+       // });
+        //getCodeText
+        //return;
+
         var that = this;
         var params = {
             phone: that.data.phone,

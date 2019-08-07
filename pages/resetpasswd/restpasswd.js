@@ -80,6 +80,13 @@ Page({
     },
 
     /**
+     *  返回上一级目录
+     */
+    backup: function (e) {
+        wx.navigateBack(-1);
+    },
+
+    /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
