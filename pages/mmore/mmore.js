@@ -9,29 +9,6 @@ Page({
         errTipsInfo: null,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         showAuth: false,
-        list: [
-            {
-                id: 'resetpw',
-                name: '重置密码',
-                open: false,
-                pages: ['button', 'list',]
-            },
-        ],
-
-    },
-
-    kindToggle: function (e) {
-        var id = e.currentTarget.id, list = this.data.list;
-        for (var i = 0, len = list.length; i < len; ++i) {
-            if (list[i].id == id) {
-                list[i].open = !list[i].open
-            } else {
-                list[i].open = false
-            }
-        }
-        this.setData({
-            list: list
-        });
     },
 
     /**
@@ -46,21 +23,31 @@ Page({
                     // 已经授权，可以直接调用 getUserInfo 获取头像昵称
                     wx.getUserInfo({
                         success: function (res) {
-                            console.log(res.userInfo)
+                            console.log(res);
                             that.setData({
                                 showAuth: false,
                             });
                         },
 
-                        fail:function (res) {
+                        fail: function (res) {
+                            console.log(res);
                             that.setData({
                                 showAuth: true,
                             });
                         },
 
-                        complete:function (res) {
+                        complete: function (res) {
+                            //console.log(res);
+                        },
 
-                        }
+                        // 默认 false
+                        // 是否带上登录态信息。当 withCredentials 为 true 时，要求此前有调用过 wx.login 且登录态尚未过期，
+                        // 此时返回的数据会包含 encryptedData, iv 等敏感信息；当 withCredentials 为 false 时，不要求有登录态，
+                        // 返回的数据不包含 encryptedData, iv 等敏感信息。
+                        //withCredentials: true,
+
+                        //显示用户信息的语言,默认 en
+                        lang: "en",//zh_CN,zh_TW
                     });
                 } else {
                     that.setData({
