@@ -18,7 +18,11 @@ Page({
         isShow: wx.getStorageSync("token"),
         showTopTips: false,
         errTipsInfo: null,
-
+        menuList: [
+            {id: 0, url: "/pages/answer/answer", icon: "", contentText: "菜单文字1", contentDesc: "菜单描述"},
+            {id: 1, url: "/pages/discovery/discovery", icon: "", contentText: "菜单文字2", contentDesc: "菜单描述"},
+            {id: 2, url: "/pages/discovery/discovery", icon: "", contentText: "菜单文字3", contentDesc: "菜单描述"},
+        ],
     },
     //事件处理函数
     bindItemTap: function () {

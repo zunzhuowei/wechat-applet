@@ -37,12 +37,36 @@
 
 <!--        hidden="{{activeIndex != 1}}"-->
 <view hidden="{{!isShow}}">
-    <view>
-        <image src="../../images/24213.jpg" class="" style="width:100%;"/>
+    <view class="page__hd">
+        <view class="page__title">管理系统首页</view>
+        <view class="page__desc">
+            管理系统功能描述
+           <!-- WeUI 是一套同微信原生视觉体验一致的基础样式库，
+            由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。-->
+        </view>
     </view>
 
+<!--
+<view>
+        <image src="../../images/24213.jpg" class="" style="width:100%;"/>
+    </view>
+    -->
 
+    <view class="page__bd">
+       <!-- <view class="weui-cells__title">菜单列表</view>-->
+        <view class="weui-cells weui-cells_after-title" wx:for="{{menuList}}" wx:for-item="menu" wx:for-index="index" wx:key="key">
 
+            <!-- 不同跳转到 tarbar 页面 -->
+            <navigator url="{{menu.url}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image src="{{menu.icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">{{menu.contentText}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{menu.contentDesc}}:{{index}}</view>
+            </navigator>
+
+        </view>
+    </view>
 
     <!-- 自定义 底部 tabbar -->
     <custom-tabbar  indexId="0"></custom-tabbar>
