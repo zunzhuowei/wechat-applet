@@ -15,9 +15,10 @@ Page({
         isAgree: false,
         account: 12345698745,
         password: 123456,
-        isShow: true,
+        isShow: wx.getStorageSync("token"),
         showTopTips: false,
         errTipsInfo: null,
+
     },
     //事件处理函数
     bindItemTap: function () {
@@ -43,11 +44,14 @@ Page({
      *  绑定到 用户信息页面
      */
     bindUInfoTap: function () {
-        //wx.navigateTo({
-        //   url: '../uinfo/uinfo'
-        //});
-        wx.reLaunch({
-            url: '../menu/menu?id=1'
+        // wx.navigateTo({
+        //   url: '../menu/menu'
+        // });
+        // wx.reLaunch({
+        //     url: '../menu/menu?id=1'
+        // });
+        this.setData({
+            isShow: wx.getStorageSync("token")
         });
     },
 
@@ -63,10 +67,6 @@ Page({
         if (token) {
             console.log("---------------token:" + token);
             this.bindUInfoTap();
-        } else {
-            this.setData({
-                isShow: true
-            });
         }
     },
 
@@ -285,15 +285,13 @@ Page({
                 that.setData({
                     account: null,
                     password: null,
-                    isShow: false,
                 });
                 that.go2UInfoPage();
             })
             .catch(function (data) {
             console.log(data);
             that.showErr(null, data.errMsg)
-        })
-        ;
+        });
     },
 
 })

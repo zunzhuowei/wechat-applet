@@ -47,7 +47,7 @@
 </view>
 
 <!-- 自定义 底部 tabbar -->
-<custom-tabbar></custom-tabbar>
+<custom-tabbar indexId="4"></custom-tabbar>
 
 <!--
 <view class="my">

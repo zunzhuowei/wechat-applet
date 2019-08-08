@@ -19,7 +19,7 @@
     "navigationBarBackgroundColor": "#0068C4",
     "navigationBarTitleText": "管理系统",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": false
   },
   "tabBar": {
     "custom": true,

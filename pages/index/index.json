@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "test-com-name": "../../custom/test/test"
+    "test-com-name": "../../custom/test/test",
+    "custom-tabbar": "/custom/tabbar/tabbar"
   }
 }

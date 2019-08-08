@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml" wx:if="{{isShow}}">
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml" hidden="{{isShow}}">
     <view class="page__hd">
         <view class="page__title">系统登录</view>
         <view class="page__desc">欢迎使用 xxx 管理系统</view>
@@ -31,6 +31,21 @@
         </view>
 
     </view>
+
+    <include  src="../../templates/footer/footer.wxml"></include>
+</view>
+
+<!--        hidden="{{activeIndex != 1}}"-->
+<view hidden="{{!isShow}}">
+    <view>
+        <image src="../../images/24213.jpg" class="" style="width:100%;"/>
+    </view>
+
+
+
+
+    <!-- 自定义 底部 tabbar -->
+    <custom-tabbar  indexId="0"></custom-tabbar>
 </view>
 
 <view>
@@ -38,5 +53,4 @@
 <!--    <test-com-name inner-text="Some text"></test-com-name>-->
 </view>
 
-<include  src="../../templates/footer/footer.wxml"></include>
 

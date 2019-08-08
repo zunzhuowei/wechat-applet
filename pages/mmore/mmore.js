@@ -169,14 +169,6 @@ Page({
         });
     },
 
-    /**
-     *  重设密码2
-     */
-    resetPw2: function () {
-        wx.navigateTo({
-            url: "../restpw2/restpw",
-        });
-    },
 
     /**
      *  登出

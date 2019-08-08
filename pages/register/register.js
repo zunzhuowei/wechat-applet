@@ -150,7 +150,6 @@ Page({
      *  获取验证码
      */
     getVcode:function () {
-
         //util.TimeDown("2019-08-07 23:22:22", function (d, h, m, s) {
         //    console.log("d,h,m,s ---:: d:" + d + ",h:" + h + ",m:" + m + ",s:" + s);
        // });
